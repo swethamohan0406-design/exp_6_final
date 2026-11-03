@@ -5,14 +5,14 @@ model = joblib.load("iris_model.pkl")
 
 st.title("Iris Flower Prediction")
 
-sl = st.number_input("Sepal Length")
-sw = st.number_input("Sepal Width")
-pl = st.number_input("Petal Length")
-pw = st.number_input("Petal Width")
+sl = st.number_input("Sepal Length",min_value=0.0)
+sw = st.number_input("Sepal Width",min_value=0.0)
+pl = st.number_input("Petal Length",min_value=0.0)
+pw = st.number_input("Petal Width",min_value=0.0)
 
 if st.button("Predict"):
     pred = model.predict([[sl, sw, pl, pw]])
 
     flowers = ["Setosa", "Versicolor", "Virginica"]
 
-    st.success(flowers[pred[0]])
+    st.success("the flower is:"+flowers[pred[0]])
