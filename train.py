@@ -4,12 +4,12 @@ import joblib
 
 iris = load_iris()
 
-X = iris.data
+x = iris.data
 y = iris.target
 
 model = RandomForestClassifier()
 
-model.fit(X, y)
+model.fit(x, y)
 
 joblib.dump(model, "iris_model.pkl")
 
